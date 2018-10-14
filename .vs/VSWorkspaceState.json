@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\src",
+    "\\src\\common",
+    "\\src\\common\\header",
+    "\\src\\common\\header\\store",
+    "\\src\\store"
+  ],
+  "SelectedNode": "\\src\\store\\reducer.js",
+  "PreviewInSolutionExplorer": false
+}

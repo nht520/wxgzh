@@ -1,3 +1,4 @@
+import * as actionTypes  from './actionTypes';
 const { fromJS } = require('immutable');
 //defaultState放store默认数据
 const defaultState = fromJS({
@@ -5,12 +6,16 @@ const defaultState = fromJS({
 });
 // immutable的set的方法会结合之前immutable对象的值
 //和设置的值，返回一个全新的对象
+const changeHomeDate = ( state,action)=>{
+    return state.merge({
+        topickList:fromJS(action.topickList),
+    })
+}
+
 export default  ( state = defaultState, action ) => {
     switch(action.type){
-        case 'change_home_data':
-            return state.merge({
-                topickList:fromJS(action.topickList),
-            })
+        case actionTypes.CHANGE_HOME_DATA:
+            return changeHomeDate(state,action)
         default:
             return state;
     }

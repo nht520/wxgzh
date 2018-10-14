@@ -6,7 +6,7 @@ import { reducer as homeReducer } from '../home/store';
 
 const reducer = combineReducers({
     header:headerReducer,
-    home:homeReducer
+    home: homeReducer
 })
 
 export default reducer;
