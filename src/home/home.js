@@ -6,10 +6,12 @@ import { actionCreators } from './store';
 import {
     HomeWrapper,
 } from './style'
+import Header from "../common/header/header";
 class Home  extends  Component{
     render(){
         return(
             <HomeWrapper>
+                <Header/>
                 <Time/>
                 <List/>
             </HomeWrapper>

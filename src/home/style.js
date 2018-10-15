@@ -86,4 +86,9 @@ export const Button = styled.button`
     border-radius: 3px;
 `;
 
-
+//登录
+export const LoginWrapper = styled.div`
+    width:100px;
+    height:200px;
+    background:#f00;
+`;

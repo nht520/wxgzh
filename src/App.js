@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
-import Header from './common/header/header';
 //引用redux 和 store 仓库
 import { Provider } from 'react-redux'
 import store from './store/index'
 //引用路由
-import { BrowserRouter,Route } from 'react-router-dom'
+import {
+    BrowserRouter,
+    Route,
+    // Link
+} from 'react-router-dom'
 import Home from './home/home';
+import login from './home/login/login';
 class App extends Component {
   render() {
     return (
         <Provider store={store}>
             <div className="App">
-                <Header/>
                 <BrowserRouter>
                     <div>
-                        <Route path='/' exact component={Home}>
-                        </Route>
+                        <Route path='/Home' exact component={Home}></Route>
+                        <Route path='/' exact component={login}></Route>
+                        {/*<ul>*/}
+                            {/*<li>*/}
+                                {/*<Link to="/Home">yi</Link>*/}
+                            {/*</li>*/}
+                            {/*<li>*/}
+                                {/*<Link to="/">er</Link>*/}
+                            {/*</li>*/}
+                        {/*</ul>*/}
+                        {/*泪水teble*/}
                     </div>
                 </BrowserRouter>
             </div>
