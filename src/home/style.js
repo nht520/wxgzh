@@ -60,7 +60,6 @@ export const TimeAuto = styled.div`
     border:1px solid #777777;
     line-height: 35px;
         color:#878787;
-    
 `;
 export const Timezhi = styled.div`
     width:10%;
@@ -88,7 +87,42 @@ export const Button = styled.button`
 
 //登录
 export const LoginWrapper = styled.div`
-    width:100px;
-    height:200px;
-    background:#f00;
+    & img{
+        width:100%;
+    }
+    & input{
+        width: 100%;
+        margin-top: 10%;
+        line-height: 40px;
+        box-sizing: border-box;
+        border-radius: 3px;
+        background: none;
+        border-bottom: 1px solid #6e6e6e;
+        border: none;
+    }
+    & .am-button{
+        margin-top:8%;
+        background:#574ec5;
+        border:none;
+        color:#ffffff;
+    }
+    & .am-button.am-button-active{
+         background:#574ec5d1;
+    }
+    & ul li{
+        border-bottom:1px solid #ccc;
+    }
+`;
+export const LoginFrom = styled.div`
+    padding: 5% 10% 10% 10%;
+    margin:0 auto;
+    & .am-flexbox{
+        margin-top:8%;
+    }
+    & .ina .am-flexbox-item a{
+        color:#3d3d3d;
+    }
+    & .shuom{
+        color:#a7a7a7;
+    }
 `;
