@@ -42,7 +42,6 @@ class Header extends Component{
     }
     logout = () =>{
         storage.remove("user");
-        this.props.history.push('/')
     }
 }
 const mapState = ( state ) => {

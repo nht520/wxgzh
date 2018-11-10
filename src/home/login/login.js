@@ -8,7 +8,7 @@ import {
     LoginWrapper,
     LoginFrom
 } from "../style";
-import { Button,Flex } from 'antd-mobile';
+import { Button,Flex} from 'antd-mobile';
 class login  extends  Component{
     constructor(props){
         super(props);
@@ -27,7 +27,7 @@ class login  extends  Component{
                             <input type="text" onChange={this.username} placeholder="请输入账号"/>
                         </li>
                         <li>
-                            <input type="password" onKeyDown={this.k} onChange={this.pssword}  placeholder="请输入密码" />
+                            <input type="password" onChange={this.pssword}  onKeyDown={this.inputKeyDown}  placeholder="请输入密码" />
                         </li>
                     </ul>
                     <Button onClick={this.loginButton}>登录</Button>
@@ -60,6 +60,12 @@ class login  extends  Component{
         this.setState({
             pssword:e.target.value,
         })
+    }
+    //判断是否按下了回车
+    inputKeyDown = (e) =>{
+        if (e.keyCode === 13) {
+            this.loginButton()
+        }
     }
     loginButton = () => {
         const _this = this;
