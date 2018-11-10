@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { actionCreators }  from './store';
+import storage from '../../storeage/storage';
 //
 import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'
 import { Flex } from 'antd-mobile';
@@ -12,6 +13,12 @@ import {
 } from './style';
 //无状态组件
 class Header extends Component{
+    constructor(props){
+        super(props);
+        this.state=({
+            title:"",
+        })
+    }
     render(){
         const { list } = this.props;
         const newList=list.toJS();
@@ -23,7 +30,7 @@ class Header extends Component{
                         <i className="iconfont"> &#xe61c; </i>
                         <Site>{newList.title}</Site>-<LogName>{newList.site}</LogName>
                     </Flex.Item>
-                    <Flex.Item className='right'>
+                    <Flex.Item className='right' onClick={this.logout}>
                         退出
                     </Flex.Item>
                 </NavBar>
@@ -32,6 +39,10 @@ class Header extends Component{
     }
     componentDidMount() {
         this.props.handinputseach()
+    }
+    logout = () =>{
+        storage.remove("user");
+        this.props.history.push('/')
     }
 }
 const mapState = ( state ) => {
