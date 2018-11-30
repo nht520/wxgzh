@@ -42,6 +42,8 @@ class Header extends Component{
     }
     logout = () =>{
         storage.remove("user");
+        alert("111")
+        //清除数据后返回登录页面
     }
 }
 const mapState = ( state ) => {

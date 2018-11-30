@@ -78,13 +78,13 @@ class login  extends  Component{
         } else {
             //把用户名  密码统一存在_param里面  把_param提交到后台
             const _param = new URLSearchParams();
-                  _param.append("username",_this.username);
-                  _param.append("pssword",_this.pssword);
+                  _param.append("username",_this.state.username);
+                  _param.append("pssword",_this.state.pssword);
             var api ="http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1";
             Axios.post(api,_param).then((res)=>{
                 console.log(res);
-                // if(res.data.result[0].catid==="20"){
-                if(_this.state.username==="admin",_this.state.pssword==="a123456"){
+                if(res.data.result[0].catid==="20"){
+                // if(_this.state.username==="admin",_this.state.pssword==="a123456"){
                     storage.set("user",res.data.result);
                     //登录成功跳转到首页
                     this.props.history.push('/home')

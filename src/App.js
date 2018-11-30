@@ -8,8 +8,8 @@ import {
     Route,
     // Link
 } from 'react-router-dom'
-import Home from './home/home';
-import login from './home/login/login';
+import Home from "./home/Home";
+import login from './home/login/Login';
 class App extends Component {
   render() {
     return (
