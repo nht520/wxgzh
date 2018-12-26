@@ -78,16 +78,16 @@ class login  extends  Component{
         } else {
             //把用户名  密码统一存在_param里面  把_param提交到后台
             const _param = new URLSearchParams();
-                  _param.append("username",_this.state.username);
-                  _param.append("pssword",_this.state.pssword);
-            var api ="http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1";
+                  _param.append("empName",_this.state.username);
+                  _param.append("empPassword",_this.state.pssword);
+            var api ="http://md.9knx.com:9099/sale/login";
             Axios.post(api,_param).then((res)=>{
                 console.log(res);
-                if(res.data.result[0].catid==="20"){
+                if(res.status===200){
                 // if(_this.state.username==="admin",_this.state.pssword==="a123456"){
-                    storage.set("user",res.data.result);
+                    storage.set("user",res.data.data);
                     //登录成功跳转到首页
-                    this.props.history.push('/home')
+                    _this.props.history.push('/home')
                 }else{
                     //如果返回错误提示
                     _this.text=res.data.result.msg;
