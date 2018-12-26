@@ -84,14 +84,32 @@ class login  extends  Component{
             Axios.post(api,_param).then((res)=>{
                 console.log(res);
                 if(res.status===200){
-                // if(_this.state.username==="admin",_this.state.pssword==="a123456"){
-                    storage.set("user",res.data.data);
-                    //登录成功跳转到首页
-                    _this.props.history.push('/home')
+                    const code = res.data.status;
+                    if( code === "1" ){
+                        //将数据存在storage
+                        storage.set("user",res.data.data);
+                        _this.props.history.push('/Home')
+                    }else if( code === "0" ){
+                        _this.text=res.data.message;
+                    }else if( code === "2"){
+                        _this.text=res.data.message;
+                    }else{
+                        _this.text=res.data.message;
+                    }
                 }else{
-                    //如果返回错误提示
-                    _this.text=res.data.result.msg;
+                    //如果登录失败 就返回错误信息
+                    _this.text=res.data.message;
                 }
+                // console.log(res);
+                // if(res.status===200){
+                // // if(_this.state.username==="admin",_this.state.pssword==="a123456"){
+                //     storage.set("user",res.data.data);
+                //     //登录成功跳转到首页
+                //     _this.props.history.push('/home')
+                // }else{
+                //     //如果返回错误提示
+                //     _this.text=res.data.result.msg;
+                // }
             },(err)=>{
                 console.log(err);
             });
