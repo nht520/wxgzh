@@ -8,13 +8,15 @@ import {
     LoginWrapper,
     LoginFrom
 } from "../style";
-import { Button,Flex} from 'antd-mobile';
+import { Toast,Button,Flex} from 'antd-mobile';
+//引用提示
 class login  extends  Component{
     constructor(props){
         super(props);
         this.state={
             username:"",
-            pssword:""
+            pssword:"",
+            text:"",
         }
     }
     render(){
@@ -55,24 +57,45 @@ class login  extends  Component{
         this.setState({
             username:e.target.value,
         })
-    }
+    };
     pssword = (e) => {
         this.setState({
             pssword:e.target.value,
         })
-    }
+    };
+    showToast = () => {
+        Toast.info(this.state.text);
+    };
     //判断是否按下了回车
     inputKeyDown = (e) =>{
         if (e.keyCode === 13) {
             this.loginButton()
         }
+    };
+    kk = () =>{
+        const _this = this;
+        if (_this.state.username === '' || _this.state.username === null) {
+            _this.showToast(
+                _this.setState({
+                    text:"请输入账号",
+                })
+            );
+        }
     }
     loginButton = () => {
         const _this = this;
-        if (_this.state.username === '') {
-            alert("请输入账号")
+        if (_this.state.username === '' || _this.state.username === null) {
+            _this.showToast(
+                _this.setState({
+                    text:"请输入账号",
+                })
+        );
         } else if (_this.state.pssword === '' || _this.state.pssword === null) {
-            alert("请输入密码")
+            _this.showToast(
+                _this.setState({
+                    text:"请输入密码",
+                })
+            );
         } else if (/^[\d\D]{6,12}$/.test(_this.state.pssword) === false) {
             alert("密码在6-12位英文数字之间")
         } else {
@@ -100,22 +123,15 @@ class login  extends  Component{
                     //如果登录失败 就返回错误信息
                     _this.text=res.data.message;
                 }
-                // console.log(res);
-                // if(res.status===200){
-                // // if(_this.state.username==="admin",_this.state.pssword==="a123456"){
-                //     storage.set("user",res.data.data);
-                //     //登录成功跳转到首页
-                //     _this.props.history.push('/home')
-                // }else{
-                //     //如果返回错误提示
-                //     _this.text=res.data.result.msg;
-                // }
             },(err)=>{
                 console.log(err);
             });
         }
-    }
+    };
     componentDidMount(){
+
+    }
+    componentDidUpdate(){
 
     }
 

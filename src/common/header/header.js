@@ -42,7 +42,7 @@ class Header extends Component{
     }
     logout = () =>{
         storage.remove("user");
-        alert("111")
+        // this.props.history.push('/Login')
         //清除数据后返回登录页面
     }
 }
@@ -50,12 +50,13 @@ const mapState = ( state ) => {
     return{
         list:state.getIn(['header','ListItem']),
     }
-}
+};
 const MapDispatch = ( dispatch ) => {
     return{
         handinputseach () {
              dispatch(actionCreators.getList());
         },
     }
-}
+};
+
 export default connect( mapState,MapDispatch )(Header);
