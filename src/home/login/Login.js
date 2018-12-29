@@ -32,7 +32,7 @@ class login  extends  Component{
                             <input type="password" onChange={this.pssword}  onKeyDown={this.inputKeyDown}  placeholder="请输入密码" />
                         </li>
                     </ul>
-                    <Button onClick={this.loginButton}>登录</Button>
+                    <Button onClick={this.loginButton} >登录</Button>
                     <Flex className="ina">
                         <Flex.Item>
                             <Link to="/Home">账号激活</Link>
@@ -72,33 +72,25 @@ class login  extends  Component{
             this.loginButton()
         }
     };
-    kk = () =>{
-        const _this = this;
-        if (_this.state.username === '' || _this.state.username === null) {
-            _this.showToast(
-                _this.setState({
-                    text:"请输入账号",
-                })
-            );
-        }
-    }
+
     loginButton = () => {
         const _this = this;
         if (_this.state.username === '' || _this.state.username === null) {
-            _this.showToast(
-                _this.setState({
+            this.setState({
                     text:"请输入账号",
-                })
-        );
-        } else if (_this.state.pssword === '' || _this.state.pssword === null) {
-            _this.showToast(
-                _this.setState({
-                    text:"请输入密码",
-                })
-            );
-        } else if (/^[\d\D]{6,12}$/.test(_this.state.pssword) === false) {
-            alert("密码在6-12位英文数字之间")
-        } else {
+            },()=>_this.showToast())
+        }
+        else if (_this.state.pssword === '' || _this.state.pssword === null) {
+            this.setState({
+                text:"请输入密码",
+            },()=>_this.showToast());
+        }
+        else if (/^[\d\D]{6,12}$/.test(_this.state.pssword) === false) {
+            this.setState({
+                text:"密码在6-12位英文数字之间",
+            },()=>_this.showToast());
+        }
+        else {
             //把用户名  密码统一存在_param里面  把_param提交到后台
             const _param = new URLSearchParams();
                   _param.append("empName",_this.state.username);
@@ -128,11 +120,12 @@ class login  extends  Component{
             });
         }
     };
-    componentDidMount(){
+    componentDidMount() {
 
     }
+    componentWillUnmount() {
+    }
     componentDidUpdate(){
-
     }
 
 }
