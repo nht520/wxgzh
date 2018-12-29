@@ -105,15 +105,23 @@ class login  extends  Component{
                         storage.set("user",res.data.data);
                         _this.props.history.push('/Home')
                     }else if( code === "0" ){
-                        _this.text=res.data.message;
+                        this.setState({
+                            text:res.data.message,
+                        },()=>_this.showToast());
                     }else if( code === "2"){
-                        _this.text=res.data.message;
+                        this.setState({
+                            text:res.data.message,
+                        },()=>_this.showToast());
                     }else{
-                        _this.text=res.data.message;
+                        this.setState({
+                            text:res.data.message,
+                        },()=>_this.showToast());
                     }
                 }else{
                     //如果登录失败 就返回错误信息
-                    _this.text=res.data.message;
+                    this.setState({
+                        text:res.data.message,
+                    },()=>_this.showToast());
                 }
             },(err)=>{
                 console.log(err);
