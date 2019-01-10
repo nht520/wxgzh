@@ -7,7 +7,7 @@ const changHomeData = (result) => ({
 });
 export const getHomeInfo = () =>{
     return (dispatch) => {
-        axios.get('http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1')
+        axios.get(window.g.ApiUrl)
           .then((res)=>{
             const result = res.data.result;
             console.log(result);

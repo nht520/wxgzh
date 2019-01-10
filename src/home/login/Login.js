@@ -94,7 +94,7 @@ class login  extends  Component{
             const _param = new URLSearchParams();
                   _param.append("empName",_this.state.username);
                   _param.append("empPassword",_this.state.pssword);
-            let api ="http://md.9knx.com:9099/sale/login";
+            let api =window.g.LoginApi;
             Axios.post(api,_param).then((res)=>{
                 console.log(res);
                 if(res.status===200){
