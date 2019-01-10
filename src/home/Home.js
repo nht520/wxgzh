@@ -4,7 +4,7 @@ import Time from './commponents/Time';
 import List from './commponents/List';
 import { actionCreators } from './store';
 import storage from '../storeage/storage';
-import {BrowserRouter as Router,  Route, Link,} from "react-router-dom";
+import {BrowserRouter as Router,  Route, Link} from "react-router-dom";
 import {
     HomeWrapper,
 } from './style'
@@ -24,7 +24,7 @@ class Home  extends  Component{
     render(){
         return(
             <HomeWrapper>
-                <Header ref="logout"/>
+                <Header ref="logout" history ={this.props.history} />
                 <Time/>
                 <div>
                     <Router >
@@ -57,8 +57,7 @@ class Home  extends  Component{
         // this.props.history.push('/');
     };
     componentDidMount (){
-        const _this = this;
-        _this.home();
+        this.home();
         this.props.changeHomeDate();
     }
 }

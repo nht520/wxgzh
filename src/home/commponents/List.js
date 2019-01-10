@@ -21,9 +21,8 @@ class List  extends  Component{
         PageList.push(
                 list.map((item) => (
                 <Link to={{
-                        pathname:`/Detils`,
-                        state:{aid:item.get('aid')}
-                         }}
+                    pathname:`/Detils`, state:{aid:item.get('aid')}
+                }}
                       key={item.get('aid')}>
                     <ListItem>
                         <ListLeft>
