@@ -1,6 +1,6 @@
 import React, {  Component } from 'react';
 import { connect } from 'react-redux';
-import { Link,} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Axios from 'axios';
 import storage from '../../storeage/storage';
 import bj from '../../home/asstas/images/bj.jpg'
@@ -35,7 +35,7 @@ class login  extends  Component{
                     <Button onClick={this.loginButton} >登录</Button>
                     <Flex className="ina">
                         <Flex.Item>
-                            <Link to="/Home">账号激活</Link>
+                            <Link to="/Detils">账号激活</Link>
                         </Flex.Item>
                         <Flex.Item className="right">
                             <Link to="/Home">忘记密码？</Link>
@@ -72,7 +72,6 @@ class login  extends  Component{
             this.loginButton()
         }
     };
-
     loginButton = () => {
         const _this = this;
         if (_this.state.username === '' || _this.state.username === null) {
@@ -95,7 +94,7 @@ class login  extends  Component{
             const _param = new URLSearchParams();
                   _param.append("empName",_this.state.username);
                   _param.append("empPassword",_this.state.pssword);
-            var api ="http://md.9knx.com:9099/sale/login";
+            let api ="http://md.9knx.com:9099/sale/login";
             Axios.post(api,_param).then((res)=>{
                 console.log(res);
                 if(res.status===200){
@@ -129,7 +128,6 @@ class login  extends  Component{
         }
     };
     componentDidMount() {
-
     }
     componentWillUnmount() {
     }

@@ -1,5 +1,5 @@
 import React, { Component,Fragment } from "react";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import { Button } from 'antd-mobile';
 class News extends Component {
 
@@ -9,9 +9,6 @@ class News extends Component {
             title:"我是新闻页",
         })
     }
-    fanhui = () =>{
-        this.props.history.push("/")
-    };
     render(){
         return(
             <Fragment>
@@ -24,4 +21,5 @@ class News extends Component {
 
 }
 
-export default withRouter(News);
+// export default withRouter(News);
+export default News;

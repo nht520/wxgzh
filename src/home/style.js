@@ -16,11 +16,18 @@ export const ListItem = styled.div`
 export const ListLeft = styled.div`
     float:left;
     text-align:left;
+    width:75%;
     .receipts{
         color:#f00;
     }
     .receivable{
      color:#686868;
+    }
+    & h3{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-overflow:ellipsis;
     }
 `;
 export const ListRight = styled.div`

@@ -42,7 +42,7 @@ class Header extends Component{
     }
     logout = () =>{
         storage.remove("user");
-        // this.props.history.push('/Login')
+        this.props.history.push('/Login')
         //清除数据后返回登录页面
     }
 }

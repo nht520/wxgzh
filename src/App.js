@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom'
 import Home from "./home/Home";
 import login from './home/login/Login';
+import Detils from './home/commponents/Detils';
 class App extends Component {
   render() {
     return (
@@ -17,8 +18,9 @@ class App extends Component {
             <div className="App">
                 <BrowserRouter>
                     <div>
-                        <Route path='/Home' exact component={Home}></Route>
-                        <Route path='/' exact component={login}></Route>
+                        <Route path='/' exact component={login}/>
+                        <Route path='/Home' exact component={Home}/>
+                        <Route path='/Detils' exact component={Detils}/>
                         {/*<ul>*/}
                             {/*<li>*/}
                                 {/*<Link to="/Home">yi</Link>*/}
